@@ -9,12 +9,11 @@
 </head>
 <body>
     <div id="app">
-        count : {{count}}
-        <div>
-            <ol>
-                ...
-            </ol>
-        </div>
+        <ol>
+            <li v-for="todo in todos" :keu="todo.id">
+                {{todo.description}}
+            </li>
+        </ol>
     </div>
     <script>
         const Counter = {
@@ -29,11 +28,11 @@
             }
         }
 
-        const app = Vue.createApp(App);
-        app.component("todo-item", {
-            props: ["todo"],
-            template: `<li>{{todo.description}}</li>`
-        })
+        Vue.createApp(Counter).mount("#app")
+        // app.component("todo-item", {
+        //     props: ["todo"],
+        //     template: `<li>{{todo.description}}</li>`
+        // })
     </script>
 </body>
 </html>
