@@ -10,17 +10,30 @@
 <body>
     <div id="app">
         count : {{count}}
+        <div>
+            <ol>
+                ...
+            </ol>
+        </div>
     </div>
     <script>
         const Counter = {
             data(){
                 return {
-                    count : 0
+                    todos : [
+                        { id: 1, description: "eat"},
+                        { id: 2, description: "drink"},
+                        { id: 3, description: "sleep"},
+                    ]
                 }
             }
         }
 
-        Vue.createApp(Counter).mount("#app");
+        const app = Vue.createApp(App);
+        app.component("todo-item", {
+            props: ["todo"],
+            template: `<li>{{todo.description}}</li>`
+        })
     </script>
 </body>
 </html>
